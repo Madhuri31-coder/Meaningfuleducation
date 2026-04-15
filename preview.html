@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meaningful Education</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    color: #94a3b8;
+}
+
+.container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+
+.price {
+    font-size: 20px;
+    color: #38bdf8;
+}
+
+button {
+    background: #38bdf8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+.success {
+    display: none;
+    background: #064e3b;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.download-btn {
+    background: #22c55e;
+}
+
+.section {
+    margin-top: 40px;
+}
+
+.testimonial {
+    background: #1e293b;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid #38bdf8;
+}
+
+.contact {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Meaningful Education</h1>
+    <p>Powerful Educational Writings for Real Growth</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📘 Deep Learning Guide</h2>
+        <p>Understand concepts deeply instead of memorizing.</p>
+        <div class="price">₹100</div>
+        <button onclick="buyNow()">Buy Now</button>
+        <div class="success" id="successBox">
+            ✅ Payment Successful <br>
+            <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📗 Study Techniques</h2>
+        <p>Boost focus and memory using proven methods.</p>
+        <div class="price">₹100</div>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+
+    <div class="section">
+        <h2>About</h2>
+        <p>Meaningful Education provides practical, real-world learning resources to help students truly understand concepts.</p>
+    </div>
+
+    <div class="section">
+        <h2>What Students Say</h2>
+        <div class="testimonial">"Very helpful content, easy to understand!"</div>
+        <div class="testimonial">"Improved my study habits a lot."</div>
+    </div>
+
+    <div class="contact">
+        <h2>Contact</h2>
+        <p>Have questions? Reach out!</p>
+        <button class="whatsapp" onclick="contact()">WhatsApp</button>
+    </div>
+
+</div>
+
+<script>
+function buyNow() {
+    setTimeout(() => {
+        document.getElementById("successBox").style.display = "block";
+    }, 1000);
+}
+
+function downloadPDF() {
+    window.location.href = "deep-learning.pdf";
+}
+
+function contact() {
+    window.location.href = "https://wa.me/91XXXXXXXXXX";
+}
+</script>
+
+</body>
+</html>
