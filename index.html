@@ -90,6 +90,17 @@ button:hover {
     background: #25D366;
     color: black;
 }
+    input, textarea {
+    border-radius: 6px;
+    border: none;
+}
+
+.testimonial {
+    background: #1e293b;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid #38bdf8;
+}
 </style>
 </head>
 
@@ -164,6 +175,27 @@ function downloadPDF() {
 function contact() {
     window.location.href = "https://wa.me/91XXXXXXXXXX";
 }
+     let name = document.getElementById("name").value;
+    let message = document.getElementById("message").value;
+
+    if (!name || !message) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let testimonials = JSON.parse(localStorage.getItem("testimonials")) || [];
+    testimonials.push({ name, message });
+
+    localStorage.setItem("testimonials", JSON.stringify(testimonials));
+
+    document.getElementById("name").value = "";
+    document.getElementById("message").value = "";
+
+    loadTestimonials();
+}
+
+// Load when page opens
+window.onload = loadTestimonials;
 </script>
 
 </body>
