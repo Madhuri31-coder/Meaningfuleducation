@@ -156,13 +156,10 @@ button:hover {
     </div>
 
 </div>
-
 <script>
 function loadTestimonials() {
     let testimonials = JSON.parse(localStorage.getItem("testimonials")) || [];
     let container = document.getElementById("testimonialList");
-
-    if (!container) return;
 
     container.innerHTML = "";
 
@@ -188,13 +185,26 @@ function addTestimonial() {
 
     localStorage.setItem("testimonials", JSON.stringify(testimonials));
 
+    // CLEAR INPUTS
     document.getElementById("name").value = "";
     document.getElementById("message").value = "";
 
+    // RELOAD UI IMMEDIATELY
     loadTestimonials();
 }
 
-// Ensure it runs AFTER page loads
-document.addEventListener("DOMContentLoaded", loadTestimonials);
-</script></body>
+// LOAD ON PAGE OPEN
+window.onload = loadTestimonials;
+
+function buyNow() {
+    document.getElementById("successBox").style.display = "block";
+}
+
+function downloadPDF() {
+    window.location.href = "sample.pdf";
+}
+
+    
+</script>
+</body>
 </html>
