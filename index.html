@@ -162,21 +162,25 @@ button:hover {
 </div>
 
 <script>
-function buyNow() {
-    setTimeout(() => {
-        document.getElementById("successBox").style.display = "block";
-    }, 1000);
+function loadTestimonials() {
+    let testimonials = JSON.parse(localStorage.getItem("testimonials")) || [];
+    let container = document.getElementById("testimonialList");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    testimonials.forEach(t => {
+        let div = document.createElement("div");
+        div.className = "testimonial";
+        div.innerHTML = "<strong>" + t.name + "</strong><br>" + t.message;
+        container.appendChild(div);
+    });
 }
 
-function downloadPDF() {
-    window.location.href = "deep-learning.pdf";
-}
-
-function contact() {
-    window.location.href = "https://wa.me/91XXXXXXXXXX";
-}
-     let name = document.getElementById("name").value;
-    let message = document.getElementById("message").value;
+function addTestimonial() {
+    let name = document.getElementById("name").value.trim();
+    let message = document.getElementById("message").value.trim();
 
     if (!name || !message) {
         alert("Please fill all fields");
@@ -184,7 +188,7 @@ function contact() {
     }
 
     let testimonials = JSON.parse(localStorage.getItem("testimonials")) || [];
-    testimonials.push({ name, message });
+    testimonials.push({ name: name, message: message });
 
     localStorage.setItem("testimonials", JSON.stringify(testimonials));
 
@@ -194,9 +198,7 @@ function contact() {
     loadTestimonials();
 }
 
-// Load when page opens
-window.onload = loadTestimonials;
-</script>
-
-</body>
+// Ensure it runs AFTER page loads
+document.addEventListener("DOMContentLoaded", loadTestimonials);
+</script></body>
 </html>
