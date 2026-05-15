@@ -1,0 +1,16 @@
+[MDG System]
+      |
+      v
+[Workflow Approval]
+      |
+      v
+[Activation]
+      |
+      v
+[DRFOUT]
+      |
+      v
+[MATMAS IDOC]
+      |
+      v
+[Target ERP Systems]
